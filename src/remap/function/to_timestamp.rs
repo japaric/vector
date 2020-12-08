@@ -136,7 +136,7 @@ mod tests {
         }
 
         map_fallible {
-            expr: |_| ToTimestampFn { value: Map::from(BTreeMap::new()).boxed(), default: None},
+            expr: |_| ToTimestampFn { value: Map::from(map!["a": 0]).boxed(), default: None},
             def: TypeDef { fallible: true, kind: Kind::Timestamp },
         }
 

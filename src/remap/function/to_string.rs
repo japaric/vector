@@ -111,7 +111,7 @@ mod tests {
         }
 
         map_infallible {
-            expr: |_| ToStringFn { value: Map::from(BTreeMap::new()).boxed(), default: None},
+            expr: |_| ToStringFn { value: Map::from(map!["a": 0]).boxed(), default: None},
             def: TypeDef { kind: Kind::Bytes, ..Default::default() },
         }
 
