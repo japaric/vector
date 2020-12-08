@@ -194,7 +194,7 @@ mod tests {
                 Ok(vec!["foo".into(), 5.into(), Value::Array(vec!["bar".into()])].into()),
             ),
             (
-                r#"array_printer(["foo", /bar/, 5, ["baz", 4.2], true, /qu+x/])"#,
+                r#"array_printer(["foo", /bar/, 5, ["baz", 4.2], true, /qu+x/, {"1": 1, "true": true}])"#,
                 Ok(()),
                 Ok(vec![
                     r#"Bytes(b"foo")"#,
@@ -203,6 +203,7 @@ mod tests {
                     r#"[Bytes(b"baz"), Float(4.2)]"#,
                     r#"Boolean(true)"#,
                     r#"Regex(qu+x)"#,
+                    r#"{"1": Integer(1), "true": Boolean(true)}"#,
                 ].into()),
             ),
             (
@@ -251,7 +252,7 @@ mod tests {
             ),
             ("{}", Ok(()), Ok(map![].into())),
             (
-                r#"map_printer({"a": "foo", "b": /bar/, "c": 5, "d": ["baz", 4.2], "e": true, "f": /qu+x/})"#,
+                r#"map_printer({"a": "foo", "b": /bar/, "c": 5, "d": ["baz", 4.2], "e": true, "f": /qu+x/, "g": {"1": 1, "true": true}})"#,
                 Ok(()),
                 Ok(map![
                     "a": r#"Bytes(b"foo")"#,
@@ -260,6 +261,7 @@ mod tests {
                     "d": r#"[Bytes(b"baz"), Float(4.2)]"#,
                     "e": r#"Boolean(true)"#,
                     "f": r#"Regex(qu+x)"#,
+                    "g": r#"{"1": Integer(1), "true": Boolean(true)}"#,
                 ].into()),
             ),
         ];
