@@ -70,10 +70,10 @@ macro_rules! test_function {
 #[macro_export]
 macro_rules! map {
     () => (
-        ::std::collections::BTreeMap::new()
+        ::std::collections::BTreeMap::<String, $crate::Value>::new()
     );
     ($($k:tt: $v:expr),+ $(,)?) => {
-        vec![$(($k.into(), $v.into())),+]
+        vec![$((String::from($k), $crate::Value::from($v))),+]
             .into_iter()
             .collect::<::std::collections::BTreeMap<_, _>>()
     };
