@@ -120,7 +120,7 @@ mod tests {
         }
 
         map_fallible {
-            expr: |_| ToFloatFn { value: Literal::from(BTreeMap::new()).boxed(), default: None },
+            expr: |_| ToFloatFn { value: Map::from(BTreeMap::new()).boxed(), default: None },
             def: TypeDef { fallible: true, kind: Kind::Float },
         }
 

@@ -120,7 +120,7 @@ mod tests {
         }
 
         map_fallible {
-            expr: |_| ToIntFn { value: Literal::from(BTreeMap::new()).boxed(), default: None },
+            expr: |_| ToIntFn { value: Map::from(BTreeMap::new()).boxed(), default: None },
             def: TypeDef { fallible: true, kind: Kind::Integer },
         }
 

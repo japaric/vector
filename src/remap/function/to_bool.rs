@@ -120,7 +120,7 @@ mod tests {
         }
 
         map_fallible {
-            expr: |_| ToBoolFn { value: Literal::from(BTreeMap::new()).boxed(), default: None },
+            expr: |_| ToBoolFn { value: Map::from(BTreeMap::new()).boxed(), default: None },
             def: TypeDef { fallible: true, kind: Kind::Boolean },
         }
 
