@@ -53,6 +53,7 @@ lazy_static! {
         Box::new(Merge),
         Box::new(Redact),
         Box::new(OK),
+        Box::new(ERR),
     ];
 
     // List of both mutable, and immutable functions that can be loaded into a
